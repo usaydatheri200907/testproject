@@ -1,22 +1,21 @@
 pipeline {
     agent any
 
+    environment {
+        IMAGE_NAME = 'my-react-app'
+        IMAGE_TAG = 'latest'
+    }
+
     stages {
-        stage('Install') {
+        stage('Clone') {
             steps {
-                sh 'npm install'
+                checkout scm
             }
         }
 
-        stage('Build') {
+        stage('Build Docker Image') {
             steps {
-                sh 'npm run build'
-            }
-        }
-
-        stage('Test') {
-            steps {
-                sh 'npm test -- --watchAll=false'
+                sh 'docker build -t $IMAGE_NAME:$IMAGE_TAG .'
             }
         }
     }
