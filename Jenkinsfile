@@ -1,12 +1,8 @@
 pipeline {
     agent any
 
-    tools {
-        sonarRunner 'SonarScanner'  // This must match the name configured in Global Tool Configuration.
-    }
-
     environment {
-        SONARQUBE_ENV = 'SonarQube'  // This should match the SonarQube server name configured in Jenkins.
+        SONARQUBE_ENV = 'SonarQube' // this must match the name you set in Jenkins → Manage Jenkins → Configure SonarQube
     }
 
     stages {
