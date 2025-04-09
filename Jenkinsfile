@@ -1,12 +1,8 @@
 pipeline {
     agent any
 
-    tools {
-        nodejs "NodeJS"  // Optional: if you're using NodeJS tool config in Jenkins
-    }
-
     environment {
-        SONARQUBE_ENV = 'SonarQube' // Must match the name you gave in Jenkins config
+        SONARQUBE_ENV = 'SonarQube' // Must match the name from Jenkins config
     }
 
     stages {
