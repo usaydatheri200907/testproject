@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        SONARQUBE_ENV = 'SonarQube' // this must match the name you set in Jenkins → Manage Jenkins → Configure SonarQube
+        SONARQUBE_ENV = 'SonarQube' // Ensure this matches the name of your SonarQube configuration in Jenkins
     }
 
     stages {
