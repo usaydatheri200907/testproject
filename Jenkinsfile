@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        SONARQUBE_ENV = 'SonarQube' // Ensure this matches the name of your SonarQube configuration in Jenkins
+        SONARQUBE_ENV = 'SonarQube'  // Ensure this matches your configuration name in Jenkins
     }
 
     stages {
@@ -27,7 +27,7 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv("${SONARQUBE_ENV}") {
-                    sh 'sonar-scanner'
+                    sh 'sonar-scanner -Dsonar.login=squ_e09dcbc62de4d056bb07f789aac7bb32740efe45'
                 }
             }
         }
